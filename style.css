@@ -788,6 +788,8 @@ body {
 @media (max-width: 768px) {
   .navbar {
     padding: 14px 18px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .nav-logo {
@@ -799,11 +801,11 @@ body {
   }
 
   .nav-menu {
-    gap: 16px;
+    gap: 12px;
   }
 
   .menu-link {
-    display: none; /* keep navbar ultra-clean on mobile, just showing CTA */
+    display: none; /* keep mobile header clean & uncluttered */
   }
 
   .menu-cta {
@@ -815,87 +817,197 @@ body {
   .hero-section {
     padding: 95px 18px 45px;
     min-height: auto;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .science-tag {
+    font-size: 0.68rem;
+    letter-spacing: 1.2px;
+    padding: 4px 10px;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.4;
+    margin-bottom: 16px;
   }
 
   .hero-headline {
-    font-size: clamp(2.1rem, 8.5vw, 3.2rem);
-    letter-spacing: -1px;
+    font-size: clamp(1.75rem, 7.2vw, 2.6rem);
+    letter-spacing: -0.5px;
+    line-height: 1.08;
     margin-bottom: 18px;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .hero-subtext {
-    font-size: 1.02rem;
+    font-size: 1rem;
     line-height: 1.65;
     margin-bottom: 24px;
+    max-width: 100%;
   }
 
+  /* Core Controller: zero overflow, perfectly contained */
   .core-controller {
-    padding: 18px 18px;
-    border-radius: 16px;
+    width: 100%;
     max-width: 100%;
+    padding: 18px 16px;
+    border-radius: 18px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .controller-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .core-label {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+
+  .core-status {
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    word-break: break-word;
+  }
+
+  .controller-hint {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    min-height: auto; /* let height adjust naturally with zero text clipping */
+    word-break: break-word;
   }
 
   .mode-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .mode-btn {
-    padding: 10px 8px;
-    font-size: 0.78rem;
+    width: 100%;
+    padding: 10px 6px;
+    font-size: 0.74rem;
+    line-height: 1.25;
     text-align: center;
     justify-content: center;
+    white-space: normal;
+    word-break: normal;
+    box-sizing: border-box;
   }
 
   .scroll-cue {
-    display: none; /* hide redundant scroll cue on small screens */
+    display: none;
+  }
+
+  /* About section mobile refinements */
+  .section-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    word-break: break-word;
   }
 
   .about-p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    word-break: break-word;
   }
 
   .stats-column {
     gap: 14px;
+    width: 100%;
   }
 
   .stat-card {
-    padding: 18px 20px;
+    padding: 18px 18px;
     gap: 16px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .stat-number {
     font-size: 1.8rem;
+    min-width: 44px;
+  }
+
+  .stat-card h4 {
+    font-size: 0.98rem;
+    word-break: break-word;
+  }
+
+  .stat-card p {
+    font-size: 0.88rem;
+    word-break: break-word;
+  }
+
+  /* Projects grid mobile */
+  .projects-head {
+    margin-bottom: 24px;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 18px;
+    width: 100%;
   }
 
   .project-card {
     padding: 24px 20px;
     min-height: auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 
+  .project-title {
+    font-size: 1.3rem;
+    word-break: break-word;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    word-break: break-word;
+  }
+
+  /* Contact section mobile */
   .contact-card {
     padding: 32px 20px;
     border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .contact-title {
-    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+    line-height: 1.1;
+    word-break: break-word;
+  }
+
+  .contact-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    word-break: break-word;
   }
 
   .socials-grid {
     grid-template-columns: 1fr;
     gap: 12px;
+    width: 100%;
   }
 
   .social-pill {
     padding: 14px 18px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .footer-bar {
@@ -903,5 +1015,32 @@ body {
     gap: 12px;
     text-align: center;
     padding-top: 18px;
+    font-size: 0.68rem;
+  }
+}
+
+/* Extra small phones (<= 380px) */
+@media (max-width: 380px) {
+  .section,
+  .hero-section {
+    padding: 85px 14px 36px;
+  }
+
+  .navbar {
+    padding: 12px 14px;
+  }
+
+  .hero-headline {
+    font-size: 1.65rem;
+  }
+
+  .mode-buttons {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .mode-btn {
+    padding: 8px 10px;
+    font-size: 0.78rem;
   }
 }
