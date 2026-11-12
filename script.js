@@ -118,6 +118,45 @@ window.addEventListener('mouseup', () => {
   mouse.isDragging = false;
 });
 
+// Touch support for mobile devices (non-blocking passive scrolling)
+let touchStartX = 0;
+let touchStartY = 0;
+
+window.addEventListener(
+  'touchstart',
+  (e) => {
+    if (e.touches.length === 1) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      mouse.prevX = touchStartX;
+      mouse.prevY = touchStartY;
+    }
+  },
+  { passive: true }
+);
+
+window.addEventListener(
+  'touchmove',
+  (e) => {
+    if (e.touches.length === 1) {
+      const tx = e.touches[0].clientX;
+      const ty = e.touches[0].clientY;
+      const dx = tx - mouse.prevX;
+      const dy = ty - mouse.prevY;
+
+      // Gentle horizontal rotation on touch swipe
+      mouse.dragRotY += dx * 0.005;
+      mouse.dragRotX += dy * 0.003;
+      mouse.targetX = (tx / window.innerWidth) * 2 - 1;
+      mouse.targetY = -(ty / window.innerHeight) * 2 + 1;
+
+      mouse.prevX = tx;
+      mouse.prevY = ty;
+    }
+  },
+  { passive: true }
+);
+
 function updateCursor() {
   if (cursorGlow) {
     glowX += (mouse.screenX - glowX) * 0.18;
@@ -375,20 +414,39 @@ window.addEventListener('scroll', () => {
 });
 
 function getPose(progress) {
-  const isMob = window.innerWidth <= 1024;
+  const isMob = window.innerWidth <= 768;
+  const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+
   if (isMob) {
-    return { x: 0, y: -progress * 1.5, z: -progress * 2, rotY: 0 };
+    // Mobile: Keep quantum core centered in background behind content
+    return {
+      x: 0,
+      y: 0.1 - progress * 1.5,
+      z: -1.2 - progress * 1.5,
+      rotY: 0,
+      scaleMul: 0.65
+    };
+  }
+
+  if (isTablet) {
+    return {
+      x: 1.2,
+      y: -0.2 - progress * 1.2,
+      z: -0.6 - progress * 1.2,
+      rotY: -0.15,
+      scaleMul: 0.85
+    };
   }
 
   if (progress < 0.28) {
     // Hero: On right, prominent
-    return { x: 2.2, y: 0, z: 0, rotY: -0.2 };
+    return { x: 2.2, y: 0, z: 0, rotY: -0.2, scaleMul: 1.0 };
   } else if (progress < 0.65) {
     // About: Moves to left, floating next to the text
-    return { x: -2.3, y: 0.2, z: 0.4, rotY: 0.35 };
+    return { x: -2.3, y: 0.2, z: 0.4, rotY: 0.35, scaleMul: 1.0 };
   } else {
     // Projects & Contact: Higher and centered in deep background
-    return { x: 0, y: 0.6, z: -1.2, rotY: 0 };
+    return { x: 0, y: 0.6, z: -1.2, rotY: 0, scaleMul: 0.9 };
   }
 }
 
@@ -416,8 +474,9 @@ function animate() {
   atomGroup.position.y += (pose.y + hoverY - atomGroup.position.y) * 0.06;
   atomGroup.position.z += (pose.z - atomGroup.position.z) * 0.06;
 
-  // Scale transition
-  atomGroup.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.05);
+  // Scale transition with mobile responsive multiplier
+  const currentScale = targetScale * (pose.scaleMul || 1.0);
+  atomGroup.scale.lerp(new THREE.Vector3(currentScale, currentScale, currentScale), 0.05);
 
   // Smooth 3D Rotation (combination of mouse look + user drag + continuous spin)
   const targetRotY = pose.rotY + mouse.x * 0.45 + mouse.dragRotY + elapsed * 0.15;

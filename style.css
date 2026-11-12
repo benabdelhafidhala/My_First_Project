@@ -740,8 +740,32 @@ body {
 }
 
 /* ========================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
    ======================================================== */
+
+/* Touch Screen Adjustments (Phones & Tablets) */
+@media (hover: none) and (pointer: coarse) {
+  *,
+  *::before,
+  *::after,
+  html,
+  body,
+  a,
+  button,
+  input {
+    cursor: auto !important; /* restore natural mobile touch feedback */
+  }
+
+  .cursor-dot,
+  .cursor-glow {
+    display: none !important; /* hide custom cursor on mobile */
+  }
+
+  #webgl {
+    pointer-events: none; /* ensure smooth vertical finger scrolling without gesture trapping */
+  }
+}
+
 @media (max-width: 1024px) {
   .navbar {
     padding: 18px 24px;
@@ -758,5 +782,126 @@ body {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 14px 18px;
+  }
+
+  .nav-logo {
+    font-size: 1rem;
+  }
+
+  .atom-icon {
+    font-size: 1.15rem;
+  }
+
+  .nav-menu {
+    gap: 16px;
+  }
+
+  .menu-link {
+    display: none; /* keep navbar ultra-clean on mobile, just showing CTA */
+  }
+
+  .menu-cta {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+
+  .section,
+  .hero-section {
+    padding: 95px 18px 45px;
+    min-height: auto;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.1rem, 8.5vw, 3.2rem);
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+  }
+
+  .hero-subtext {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .core-controller {
+    padding: 18px 18px;
+    border-radius: 16px;
+    max-width: 100%;
+  }
+
+  .mode-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .mode-btn {
+    padding: 10px 8px;
+    font-size: 0.78rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .scroll-cue {
+    display: none; /* hide redundant scroll cue on small screens */
+  }
+
+  .about-p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .stats-column {
+    gap: 14px;
+  }
+
+  .stat-card {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .project-card {
+    padding: 24px 20px;
+    min-height: auto;
+  }
+
+  .contact-card {
+    padding: 32px 20px;
+    border-radius: 20px;
+  }
+
+  .contact-title {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+  }
+
+  .socials-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .social-pill {
+    padding: 14px 18px;
+  }
+
+  .footer-bar {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding-top: 18px;
   }
 }
