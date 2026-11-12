@@ -3,175 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ala — AI & Computer Engineering</title>
+    <title>Ala — Interactive CV & Portfolio</title>
     
-    <!-- Clean, high-impact typography -->
+    <!-- Clean, highly legible fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     
     <link rel="stylesheet" href="style.css" />
-
-    <!-- Three.js Library -->
     <script src="lib/three.min.js"></script>
   </head>
   <body>
-    <!-- Sleek Custom Cursor -->
+    <!-- Custom Smooth Cursor -->
     <div class="cursor-glow" id="cursorGlow"></div>
     <div class="cursor-dot" id="cursorDot"></div>
 
-    <!-- Interactive 3D WebGL Canvas (Quantum Neural Core) -->
+    <!-- Ambient 3D Particle Wave Canvas -->
     <canvas id="webgl"></canvas>
 
-    <!-- Top Navigation -->
+    <!-- Top Floating Header -->
     <header class="navbar">
       <a href="#hero" class="nav-logo">
-        <span class="atom-icon">⚛</span>
-        <span class="logo-title">ALA<span class="accent">.AI</span></span>
+        <span class="logo-dot"></span>
+        <span class="logo-name">ALA</span>
       </a>
 
-      <div class="status-indicator">
-        <span class="pulse-dot"></span>
-        <span id="profileStatus">SYSTEM ONLINE · READY FOR RESEARCH</span>
+      <div class="status-badge">
+        <span class="pulse-indicator"></span>
+        <span id="navStatus">OPEN TO COLLABORATIONS</span>
       </div>
 
-      <nav class="nav-menu">
-        <a href="#about" class="menu-link">About</a>
-        <a href="#projects" class="menu-link">Projects</a>
-        <a href="#contact" class="menu-cta">Connect</a>
+      <nav class="nav-links">
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-cta">Contact</a>
       </nav>
     </header>
 
-    <!-- MAIN PAGE CONTAINER -->
-    <main class="page-container">
-      <!-- HERO SECTION -->
-      <section class="section hero-section" id="hero">
-        <div class="hero-content">
-          <div class="science-tag">
-            <span class="tag-symbol">◈</span> COMPUTER ENGINEERING &amp; APPLIED AI
-          </div>
-
-          <h1 class="hero-headline">
-            SYNTHESIS OF<br />
-            <span class="gradient-text">NEURAL LOGIC</span><br />
-            <span class="outline-text">&amp; QUANTUM COMPUTING</span>
-          </h1>
-
-          <p class="hero-subtext">
-            Hi, I'm <strong class="text-glow">Ala</strong>. A first-year IT student exploring neural networks, computer architecture, and interactive physics-driven software.
+    <!-- MAIN CV CONTAINER (EDITORIAL & FLOWING, NOT BOXY) -->
+    <main class="cv-wrapper">
+      <!-- HERO / CV HEADER -->
+      <section class="cv-hero" id="hero">
+        <div class="hero-intro">
+          <div class="eyebrow-tag">CURRICULUM VITAE // 2026</div>
+          <h1 class="hero-name">Ala<span class="dot">.</span></h1>
+          <h2 class="hero-role" id="heroRole">First-Year IT Student &amp; AI Enthusiast</h2>
+          
+          <p class="hero-bio" id="heroBio">
+            I'm a first-year computer science and engineering student passionate about artificial intelligence, algorithms, and interactive software. I love building clean digital experiences, studying modern AI architectures, and learning through daily hands-on practice.
           </p>
 
-          <!-- Interactive Quantum Neural Core Controller -->
-          <div class="core-controller">
-            <div class="controller-top">
-              <span class="core-label">⚛ 3D NEURAL ATOM CORE</span>
-              <span class="core-status" id="coreStatusText">MODE: NEURAL SYNAPSE</span>
-            </div>
-
-            <p class="controller-hint" id="controllerHint">
-              Move your mouse to bend the quantum field. Click a state below to alter the neural network.
-            </p>
-
-            <div class="mode-buttons">
-              <button class="mode-btn active" data-mode="neural">🧠 Neural Brain</button>
-              <button class="mode-btn" data-mode="quantum">⚛ Quantum Atom</button>
-              <button class="mode-btn" data-mode="surge">⚡ Synaptic Surge</button>
-              <button class="mode-btn" data-mode="void">🌌 Deep Space</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="scroll-cue">
-          <div class="scroll-wheel"></div>
-          <span>SCROLL TO EXPLORE ARCHITECTURE</span>
-        </div>
-      </section>
-
-      <!-- ABOUT SECTION -->
-      <section class="section about-section" id="about">
-        <div class="section-tag">01 / FOUNDATIONS</div>
-        <div class="about-grid">
-          <div class="about-lead">
-            <h2 class="section-title">
-              WHERE SCIENCE MEETS <span class="gradient-text">ALGORITHMIC ART.</span>
-            </h2>
-            <p class="about-p">
-              I am focused on the bleeding edge of computer science: machine learning theory, low-level computation, and mathematical elegance.
-            </p>
-            <p class="about-p text-dim">
-              I believe software should be fast, intelligent, and visually striking. When away from the terminal, I channel creativity through sound synthesis and the organic patterns of nature.
-            </p>
-          </div>
-
-          <div class="stats-column">
-            <div class="stat-card">
-              <span class="stat-number">01</span>
-              <div>
-                <h4>First-Year IT Studies</h4>
-                <p>Building strong foundations in discrete math, data structures, and computer engineering.</p>
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <span class="stat-number">AI</span>
-              <div>
-                <h4>Neural Architectures</h4>
-                <p>Experimenting with transformer models, computer vision, and autonomous agents.</p>
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <span class="stat-number">3D</span>
-              <div>
-                <h4>Interactive Physics &amp; WebGL</h4>
-                <p>Synthesizing visual mathematics into real-time interactive browser engines.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS SECTION (DYNAMIC FROM data.js) -->
-      <section class="section projects-section" id="projects">
-        <div class="section-tag">02 / LAB EXPERIMENTS &amp; WORK</div>
-        <div class="projects-head">
-          <h2 class="section-title">SELECTED <span class="gradient-text">PROJECTS.</span></h2>
-          <span class="config-note">Directly connected to <code>data.js</code></span>
-        </div>
-
-        <div class="projects-grid" id="projectsContainer">
-          <!-- Dynamically populated from data.js -->
-        </div>
-      </section>
-
-      <!-- CONTACT & SOCIALS (DYNAMIC FROM data.js) -->
-      <section class="section contact-section" id="contact">
-        <div class="section-tag">03 / COLLABORATION</div>
-        <div class="contact-card">
-          <span class="collab-badge">OPEN TO RESEARCH &amp; BUILDS</span>
-          <h2 class="contact-title">
-            LET'S INVENT SOMETHING <span class="gradient-text">EXTRAORDINARY.</span>
-          </h2>
-          <p class="contact-desc">
-            Interested in discussing AI research, collaborating on an ambitious project, or connecting?
-          </p>
-
-          <div class="socials-grid" id="socialsContainer">
+          <div class="quick-links" id="heroSocials">
             <!-- Dynamically populated from data.js -->
           </div>
         </div>
 
-        <footer class="footer-bar">
-          <span>© 2026 ALA — POWERED BY QUANTUM WEBGL &amp; THREE.JS</span>
-          <a href="#hero" class="back-link">RETURN TO TOP ↑</a>
+        <div class="scroll-cue">
+          <div class="scroll-arrow">↓</div>
+          <span>SCROLL TO READ CV</span>
+        </div>
+      </section>
+
+      <!-- 01 / EDUCATION -->
+      <section class="cv-section" id="education">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h3 class="section-title">Education &amp; Background</h3>
+        </div>
+
+        <div class="timeline" id="educationContainer">
+          <!-- Dynamically populated from data.js -->
+        </div>
+      </section>
+
+      <!-- 02 / SKILLS & TECH ARSENAL -->
+      <section class="cv-section" id="skills">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <h3 class="section-title">Technical Skills &amp; Stack</h3>
+        </div>
+
+        <div class="skills-flow" id="skillsContainer">
+          <!-- Dynamically populated from data.js -->
+        </div>
+      </section>
+
+      <!-- 03 / PROJECTS -->
+      <section class="cv-section" id="projects">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <h3 class="section-title">Selected Projects &amp; Experiments</h3>
+        </div>
+
+        <div class="projects-list" id="projectsContainer">
+          <!-- Dynamically populated from data.js -->
+        </div>
+      </section>
+
+      <!-- 04 / INTERESTS -->
+      <section class="cv-section" id="interests">
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <h3 class="section-title">Passions &amp; Mindset</h3>
+        </div>
+
+        <div class="interests-grid" id="interestsContainer">
+          <!-- Dynamically populated from data.js -->
+        </div>
+      </section>
+
+      <!-- 05 / CONTACT -->
+      <section class="cv-section contact-section" id="contact">
+        <div class="section-header">
+          <span class="section-num">05</span>
+          <h3 class="section-title">Let's Connect</h3>
+        </div>
+
+        <div class="contact-content">
+          <h2 class="contact-lead">
+            HAVE A PROJECT, QUESTION, OR OPPORTUNITY?
+          </h2>
+          <p class="contact-sub">
+            I'm always eager to collaborate, learn, and contribute to innovative engineering. Reach out directly:
+          </p>
+
+          <div class="contact-links" id="contactContainer">
+            <!-- Dynamically populated from data.js -->
+          </div>
+        </div>
+
+        <footer class="cv-footer">
+          <span>© 2026 ALA — INTERACTIVE RESUME</span>
+          <a href="#hero" class="back-to-top">TOP ↑</a>
         </footer>
       </section>
     </main>
 
-    <!-- Data Configuration & Main Script -->
+    <!-- Data & Script -->
     <script src="data.js"></script>
     <script src="script.js"></script>
   </body>

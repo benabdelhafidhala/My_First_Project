@@ -1,113 +1,71 @@
 /* ========================================================
-   ALA'S PORTFOLIO DATA CONFIGURATION
-   Edit your links, projects, and info here easily!
+   ALA'S CV & PORTFOLIO DATA CONFIGURATION
+   Easily update your bio, education, skills, and projects!
    ======================================================== */
 
-const PORTFOLIO_DATA = {
-  // Personal Info
+const CV_DATA = {
   personal: {
     name: "Ala",
-    tagline: "First-Year IT Student & AI Engineering Enthusiast",
-    status: "AVAILABLE FOR COLLABORATIONS",
-    location: "Global",
-    bio: "Passionate about machine learning, computer engineering, and crafting immersive 3D digital experiences. Exploring code, melody, and nature daily."
+    title: "First-Year IT Student & AI Enthusiast",
+    status: "OPEN TO COLLABORATIONS & INTERNSHIPS",
+    location: "Computer Engineering Student",
+    bio: "I'm a first-year IT student deeply passionate about artificial intelligence, computer engineering, and building dynamic software. I balance academic rigor with daily coding practice, algorithmic experimentation, and creative exploration in music and nature."
   },
 
-  // Social & Professional Profiles
   socials: [
+    { name: "GitHub", url: "https://github.com/benabdelhafidhala", icon: "🐙", handle: "@benabdelhafidhala" },
+    { name: "LinkedIn", url: "https://linkedin.com/", icon: "💼", handle: "Ala" },
+    { name: "Email", url: "mailto:ala.portfolio@gmail.com", icon: "✉️", handle: "ala.portfolio@gmail.com" }
+  ],
+
+  education: [
     {
-      name: "GitHub",
-      username: "@AlaDev",
-      url: "https://github.com/",
-      icon: "🐙",
-      badge: "Code & Repos",
-      primary: true
-    },
-    {
-      name: "LinkedIn",
-      username: "Ala - IT Student",
-      url: "https://linkedin.com/",
-      icon: "💼",
-      badge: "Network",
-      primary: false
-    },
-    {
-      name: "Twitter / X",
-      username: "@ala_codes",
-      url: "https://x.com/",
-      icon: "🐦",
-      badge: "Updates",
-      primary: false
-    },
-    {
-      name: "Instagram",
-      username: "@ala.vibes",
-      url: "https://instagram.com/",
-      icon: "📸",
-      badge: "Creative",
-      primary: false
-    },
-    {
-      name: "Email Me",
-      username: "ala.portfolio@gmail.com",
-      url: "mailto:ala.portfolio@gmail.com",
-      icon: "✉️",
-      badge: "Direct Contact",
-      primary: true
+      period: "2026 — Present",
+      institution: "Higher Institute of Computer Science / IT Studies",
+      degree: "First-Year Computer Science & Information Technology",
+      details: "Focusing on core algorithmic problem-solving, discrete mathematics, computer architecture, data structures, and procedural programming."
     }
   ],
 
-  // Featured Projects & Works
+  skills: {
+    "AI & Data Science": ["Machine Learning", "Neural Networks", "Computer Vision", "Python"],
+    "Web & Interactive": ["JavaScript (ES6+)", "Three.js / WebGL", "HTML5 & Modern CSS", "Responsive UI"],
+    "Systems & Engineering": ["Algorithms & Data Structures", "Git & GitHub", "Linux Environment", "Object-Oriented Design"]
+  },
+
   projects: [
     {
-      id: 1,
-      title: "Interactive 3D AI Portfolio",
-      category: "Creative WebGL / 3D",
-      description: "My personal 3D interactive portfolio featuring real-time Three.js robot animations, physics-based mouse tracking, and smooth scroll choreography.",
+      title: "Interactive 3D Portfolio & CV",
+      category: "Creative WebGL",
+      year: "2026",
+      description: "A dynamic, non-boxy digital resume with ambient 3D physics, real-time cursor interactions, and responsive typography.",
       tags: ["Three.js", "WebGL", "JavaScript", "CSS3"],
-      status: "Active",
-      github: "https://github.com/",
-      demo: "#hero"
+      github: "https://github.com/benabdelhafidhala/My_First_Project",
+      demo: "https://benabdelhafidhala.github.io/My_First_Project/"
     },
     {
-      id: 2,
-      title: "AI Vision & Neural Playground",
+      title: "Neural Vision Playground",
       category: "Artificial Intelligence",
-      description: "Experiments with computer vision and neural network pipelines. Exploring real-time face tracking and object detection models.",
-      tags: ["Python", "OpenCV", "TensorFlow", "Math"],
-      status: "In Development",
-      github: "https://github.com/",
-      demo: "https://github.com/"
+      year: "2026",
+      description: "Experiments in computer vision pipelines, image feature extraction, and real-time facial feature tracking.",
+      tags: ["Python", "OpenCV", "Machine Learning"],
+      github: "https://github.com/benabdelhafidhala",
+      demo: "https://github.com/benabdelhafidhala"
     },
     {
-      id: 3,
-      title: "Algorithmic Sound & Melody Synth",
+      title: "Algorithmic Sound & Melody Synthesizer",
       category: "Audio & Code",
-      description: "Generative ambient music visualizer that translates code rhythms and Fibonacci sequences into soothing lo-fi soundscapes.",
+      year: "2026",
+      description: "Generative ambient audio experiments connecting mathematical sequences with digital audio frequencies.",
       tags: ["Web Audio API", "Algorithms", "Synthesizer"],
-      status: "Prototype",
-      github: "https://github.com/",
-      demo: "https://github.com/"
-    },
-    {
-      id: 4,
-      title: "Nature Explorer & Trails Tracker",
-      category: "Full-Stack Concept",
-      description: "Minimalist hiking and outdoor sanctuary locator helping developers disconnect from screens and find tranquility in nature.",
-      tags: ["Geolocation", "JavaScript", "Leaflet", "UX"],
-      status: "Concept",
-      github: "https://github.com/",
-      demo: "https://github.com/"
+      github: "https://github.com/benabdelhafidhala",
+      demo: "https://github.com/benabdelhafidhala"
     }
   ],
 
-  // Core Tech Skills
-  skills: [
-    { name: "Artificial Intelligence", level: "Exploring Daily", icon: "🧠" },
-    { name: "Three.js / WebGL", level: "Interactive 3D", icon: "🌐" },
-    { name: "JavaScript / ES6+", level: "Core Architecture", icon: "⚡" },
-    { name: "Python", level: "Scripting & AI", icon: "🐍" },
-    { name: "HTML5 / Modern CSS", level: "Clean Aesthetics", icon: "🎨" },
-    { name: "Computer Systems", level: "First-Year Studies", icon: "💻" }
+  interests: [
+    { name: "Artificial Intelligence", desc: "Autonomous reasoning, neural networks, and computer vision." },
+    { name: "Music & Rhythms", desc: "Exploring sound synthesis and lo-fi melodies while coding." },
+    { name: "Nature & Hiking", desc: "Finding perspective, mental clarity, and inspiration outdoors." }
   ]
 };
